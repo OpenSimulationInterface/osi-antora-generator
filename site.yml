@@ -65,7 +65,7 @@ asciidoc:
     # Make SVG inline so that we can get interactive actions (can be overridden by schema with "opts=none")
     kroki-default-options: interactive
     # Configuration for feedback button. The button is defined in the header-content.hbs in ./supplemental_ui/partials
-    page-feedbackurl: https://github.com/asam-ev/asam-project-guide/issues/new
+    page-feedbackurl: 'https://github.com/OpenSimulationInterface/open-simulation-interface/issues/new@'
     page-feedbacktype: github
     sectnums: "@"
     xrefstyle: short@
