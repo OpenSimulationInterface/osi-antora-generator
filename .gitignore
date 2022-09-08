@@ -1,0 +1,15 @@
+*.html
+*.adoc1
+*.adoc2
+site/
+0_used-keywords.adoc
+*.pyc
+.vscode/settings.json
+
+osi-documentation/
+osi-sensor-model-packaging/
+osi-validation/
+open-simulation-interface/
+
+ui-bundle/
+site_local.yml

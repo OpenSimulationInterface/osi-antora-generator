@@ -1,0 +1,166 @@
+.openblock.simulation,
+.openblock.classic
+ {
+    border: 0.15rem solid #5d5d5d;
+    background: #F2F4F4;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+}
+
+.openblock.simulation div.title::after {
+	content="SIMULATION DOMAIN";
+} 
+
+.openblock.classic div.title::after {
+	content="CLASSIC DOMAIN";
+} 
+
+.doc .openblock.simulation div.title,
+.doc .openblock.classic div.title
+{
+	text-transform: uppercase;
+    top: 0;
+    font-size: 0.83333rem;
+    padding: 0 0.5rem;
+    height: 1.25rem;
+	display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+.doc .openblock.simulation div.title
+{
+	background: red;
+    color: #fff;
+}
+
+.doc .openblock.classic div.title
+{
+	background: lightblue;
+    color: black;
+}
+
+.doc div.simulation div.content div:nth-child(1),
+.doc div.classic div.content div:nth-child(1){
+	margin-top: 0;
+}
+
+.doc .openblock.simulation div.title,
+.doc .openblock.classic div.title,
+.doc .admonitionblock .icon {
+    border-radius: 1rem;
+    left: 10px;
+}
+
+.doc .openblock.simulation div.title::before,
+.doc .openblock.classic div.title::before,
+i.fa[class^='icon-'],
+i.fa[class*=' icon-']::before {
+    content: "";
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-right: 0.25rem;
+    margin-left: -0.5rem;
+}
+
+.doc .openblock.simulation div.title::before,
+.doc .openblock.classic div.title::before,
+i.fa.icon-note::before {
+    background: no-repeat url("../img/note.svg");
+}
+
+.doc .admonitionblock .title, .doc .exampleblock .title, .doc .imageblock .title, .doc .listingblock .title, .doc .literalblock .title, .doc .openblock .title, .doc .tableblock caption, .doc .videoblock .title {
+    color: #5d5d5d;
+    font-size: 0.88889rem;
+    font-weight: 600;
+    font-style: italic;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    letter-spacing: 0.01em;
+    padding-bottom: 0.075rem;
+    text-align: left;
+}
+
+
+.doc h1, .doc h2, .doc  h3:not(.sect2:first-child h3), .doc h4:not(.sect3:first-child h4), .doc h5:not(.sect4:first-child h5), .doc h6:not(.sect5:first-child h6) {
+    margin-top: 2.5rem !important;
+}
+
+
+span.green {
+    color: darkgreen;
+}
+span.red {
+    color: red;
+}
+span.blue {
+    color: blue;
+}
+span.yellow {
+    color: #CCCC00;
+}
+span.purple {
+    color: purple;
+}
+span.orange {
+    color: orange;
+}
+span.brown {
+    color: brown;
+}
+
+.doc .title {
+    font-weight: 600;
+}
+
+i.fa.icon-tip::before {
+    background: no-repeat url("../img/tip.svg");
+}
+
+i.fa.icon-important::before {
+    background: no-repeat url("../img/important.svg");
+}
+
+i.fa.icon-warning::before {
+    background: no-repeat url("../img/warning.svg");
+}
+
+i.fa.icon-caution::before {
+    background: no-repeat url("../img/caution.svg");
+}
+
+.doc.red {
+    color: red
+}
+.doc.green {
+    color: green
+}
+.doc.blue {
+    color: blue
+}
+.doc.yellow,
+.span.yellow,
+.code.yellow {
+    color: yellow
+}
+
+.doc div.tabset .content .tab-pane table.tableblock * .admonitionblock * tr *{
+	margin-top: 0;
+}
+
+.doc div.tabset .content .tab-pane table.tableblock * .admonitionblock table {
+	margin-top: 1.5rem;
+}
+
+.doc table.tableblock * i.fa {
+    margin-top: 0;
+}
+
+.doc .colist > table code, .doc p code, .doc thead code, .doc code {
+    color: #b12146;
+    background: #fafafa;
+    border-radius: 0.25em;
+    font-size: 0.95em;
+    padding: 0.125em 0.25em;
+}

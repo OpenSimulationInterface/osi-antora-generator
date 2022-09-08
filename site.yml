@@ -1,0 +1,100 @@
+site:
+  title: ASAM OSI (Open Simulation Interface)
+  # the 404 page and sitemap files only get generated when the url property is set
+  url: https://opensimulationinterface.github.io/osi-documentation/
+  start_page: asamosi::index.adoc # Replace "latest" with the last released version, e.g. 1.0.0
+
+# urls: # Activate this once the first release version goes live!!!
+#   latest_version_segment_strategy: redirect:to
+#   latest_version_segment: latest
+#   redirect_facility: nginx
+
+content:
+  sources:
+    - url: https://github.com/OpenSimulationInterface/osi-documentation.git
+    # - url: ./osi-documentation
+      branches: [main]
+      # branches: HEAD
+      # tags: [v*,"!v1*", "!v3.5.0"]
+      start_path: .antora
+      edit_url: 'https://github.com/OpenSimulationInterface/osi-documentation/blob/{refname}/{path}'
+    - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git
+    # - url: ./open-simulation-interface
+      branches: [main]
+      # branches: HEAD
+      # tags: [v*,"!v1*", "!v3.5.0"]
+      start_path: .antora
+      edit_url: 'https://github.com/OpenSimulationInterface/open-simulation-interface/blob/{refname}/{path}'
+    - url: https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git
+    # - url: ./osi-sensor-model-packaging
+      branches: [main]
+      # branches: HEAD
+      # tags: [v*,"!v1*", "!v3.5.0"]
+      start_path: .antora
+      edit_url: 'https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/blob/{refname}/{path}'
+    - url: https://code.asam.net/common/style-resources.git
+      branches: master      
+      start_path: antora
+
+ui:
+  bundle:
+    url: https://code.asam.net/common/style-resources/-/raw/master/antora/ui-bundle.zip?inline=false
+    snapshot: true
+  supplemental_files: ./supplemental_ui
+
+
+output:
+  clean: true
+  dir: ./site
+
+runtime:
+  fetch: true
+
+# tag::asciidoctor[]
+asciidoc:
+  attributes:
+    page-pagination: true
+    # page-width-limit: none@
+    hide-uri-scheme:
+    kroki-server-url: 'http://kroki:8000'
+    kroki-fetch-diagram: ""
+    # Allow URI read to retrieve SVG on compilation
+    allow-uri-read: true
+    # use SVG unless otherwise specified
+    kroki-default-format: svg
+    # Make SVG inline so that we can get interactive actions (can be overridden by schema with "opts=none")
+    kroki-default-options: interactive
+    # Configuration for feedback button. The button is defined in the header-content.hbs in ./supplemental_ui/partials
+    page-feedbackurl: https://github.com/asam-ev/asam-project-guide/issues/new
+    page-feedbacktype: github
+    sectnums: "@"
+    xrefstyle: short@
+    toclevels: 3
+    asciidoc-resources: ASAM_Syle_Resources:ROOT:partial$asciidoc-resources
+
+    ## Labels
+    mandatory: '<label class="mandatory"/>'
+    recommended: '<label class="recommended"/>'
+    optional: '<label class="optional"/>'
+
+  extensions:
+  - asciidoctor-kroki
+  - '@djencks/asciidoctor-mathjax'
+  - './asam-antora-extensions/asam-asciidoctor_extensions-registered.js'
+  - './asam-antora-extensions/asam-asciidoctor_extensions.js'
+# end::asciidoctor[]
+
+
+# tag::antora[]
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+    - require: './asam-antora-extensions/asam-antora_extension.js'
+      numbered_titles: true
+      section_number_style: 'iso'
+      alternate_xref_style: 'full'
+      loft: true
+      local_to_global_references: true
+      doxygen: true
+
+  # end::antora[]

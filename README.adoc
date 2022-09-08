@@ -1,0 +1,34 @@
+= ASAM Project Guide - Generator
+
+image::https://github.com/asam-ev/asam-project-guide/actions/workflows/site-build.yml/badge.svg?branch=main[link=https://github.com/asam-ev/asam-project-guide/actions/workflows/site-build.yml]
+
+****
+IMPORTANT: This repository contains the generator and general setup for Antora in context of the Project Guide.
+It does not contain the content itself!
+This can be found https://github.com/asam-ev/asam-project-guide-content[here] instead.
+****
+
+Hosted version available at:
+https://asam-ev.github.io/asam-project-guide[ASAM Project Guide (Link)]
+
+
+== Building locally
+To build the Project Guide locally, check out this repository.
+Next, check out the https://github.com/asam-ev/asam-project-guide-content[content repository^] to a new subfolder (e.g. "asam-project-guide-content").
+In order for the generator to use the local sources, edit the 'site.yml' so that each `url` attribute under `content`/`sources` points to that folder (e.g. `./asam-project-guide-content`). +
+If you also want to include specific branches and/or tags (or exclude them), change the other settings accordingly.
+For more information on how the 'site.yml' works, see https://docs.antora.org/antora/latest/playbook/set-up-playbook/[the official Antora documentation].
+
+IMPORTANT: IF YOU USE THIS REPO TO BUILD LOCALLY, DO NOT PUSH CHANGES RELATED TO THAT TO REMOTE.
+Make sure only to commit and push changes that are relevant for remote as well, as otherwise the build pipeline will break.
+
+[TIP]
+====
+If you are using VSCode, there is currently no correctly working support for source control of nested git projects.
+However, there exists a workaround:
+
+. Check out the repositories as described above but do not add them to your workspace.
+If they are already in your workspace, remove them from there.
+. Next, add the innermost repository (the content repository) to your workspace first.
+. Then, continue outwards until you added the uppermost repository (the generator).
+====
