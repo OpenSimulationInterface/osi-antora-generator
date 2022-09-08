@@ -60,7 +60,7 @@ jobs:
     #   with:
     #     github_token: ${{ secrets.GITHUB_TOKEN }}
     #     publish_dir: ./repo/site
-    - name: Deploy 🚀
+    - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./repo/site # The folder the action should deploy.
