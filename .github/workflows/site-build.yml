@@ -50,16 +50,13 @@ jobs:
       with:
         entrypoint: sh
         args: repo/run-build.sh
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with: 
+        name: antora-build
+        path: ./repo/site
 
-
-    # # deploy to gh-pages
-    # # - name: deploy to gh-pages if push to main branch
-    # - name: deploy to gh-pages after success
-    #   # if: ${{ github.ref == 'refs/heads/main' }}
-    #   uses:  peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: ./repo/site
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
