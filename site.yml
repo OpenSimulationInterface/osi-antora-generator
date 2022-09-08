@@ -13,21 +13,21 @@ content:
   sources:
     - url: https://github.com/OpenSimulationInterface/osi-documentation.git
     # - url: ./osi-documentation
-      branches: [base-antora-setup] # change to main later
+      branches: [antora/base-antora-setup] # change to main later
       # branches: HEAD
       # tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
       edit_url: 'https://github.com/OpenSimulationInterface/osi-documentation/blob/{refname}/{path}'
     - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git
     # - url: ./open-simulation-interface
-      branches: [base-antora-setup] # change to main later
+      branches: [antora/base-antora-setup] # change to main later
       # branches: HEAD
       # tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
       edit_url: 'https://github.com/OpenSimulationInterface/open-simulation-interface/blob/{refname}/{path}'
     - url: https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git
     # - url: ./osi-sensor-model-packaging
-      branches: [base-antora-setup] # change to main later
+      branches: [antora/base-antora-setup] # change to main later
       # branches: HEAD
       # tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
