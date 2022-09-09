@@ -47,6 +47,7 @@ def run_docker_compose(remote_setup=False):
     try:
         os.chdir("../")
         os.system(target+" run antora")
+        os.chdir("scripts")
     except:
         try:
             os.system(target+" run antora")

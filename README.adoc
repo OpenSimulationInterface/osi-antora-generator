@@ -1,26 +1,53 @@
-= ASAM Project Guide - Generator
+= ASAM OSI - Antora generator
 
-image::https://github.com/asam-ev/asam-project-guide/actions/workflows/site-build.yml/badge.svg?branch=main[link=https://github.com/asam-ev/asam-project-guide/actions/workflows/site-build.yml]
+image::https://github.com/OpenSimulationInterface/osi-antora-generator/actions/workflows/site-build.yml/badge.svg?branch=main[link=https://github.com/OpenSimulationInterface/osi-antora-generator/actions/workflows/site-build.yml]
 
 ****
-IMPORTANT: This repository contains the generator and general setup for Antora in context of the Project Guide.
+IMPORTANT: This repository contains the generator and general setup for Antora in context of ASAM OSI.
 It does not contain the content itself!
-This can be found https://github.com/asam-ev/asam-project-guide-content[here] instead.
 ****
+
+The pipeline of this repository is responsible for creating the combined and versioned Antora output for ASAM OSI.
+It also pushes it to the respective GitHub pages for hosting.
 
 Hosted version available at:
-https://asam-ev.github.io/asam-project-guide[ASAM Project Guide (Link)]
+https://OpenSimulationInterface.github.io/osi-antora-generator[ASAM OSI (link)]
 
 
 == Building locally
-To build the Project Guide locally, check out this repository.
-Next, check out the https://github.com/asam-ev/asam-project-guide-content[content repository^] to a new subfolder (e.g. "asam-project-guide-content").
-In order for the generator to use the local sources, edit the 'site.yml' so that each `url` attribute under `content`/`sources` points to that folder (e.g. `./asam-project-guide-content`). +
-If you also want to include specific branches and/or tags (or exclude them), change the other settings accordingly.
-For more information on how the 'site.yml' works, see https://docs.antora.org/antora/latest/playbook/set-up-playbook/[the official Antora documentation].
+. *Precondition*: have docker and docker-compose installed. Have access to the ASAM GitLab Antora extensions repository.
++
+TIP: Official installation can be found https://docs.docker.com/get-docker/[here].
 
-IMPORTANT: IF YOU USE THIS REPO TO BUILD LOCALLY, DO NOT PUSH CHANGES RELATED TO THAT TO REMOTE.
-Make sure only to commit and push changes that are relevant for remote as well, as otherwise the build pipeline will break.
+. Clone this repository with submodules. 
++
+[source, shell]
+----
+git clone --recurse-submodules https://github.com/OpenSimulationInterface/osi-antora-generator.git
+----
+. Recommended: To use local content instead of pulling from remote every time, check out all content repositories (https://github.com/OpenSimulationInterface/osi-documentation[osi-documentation], https://github.com/OpenSimulationInterface/open-simulation-interface[open-simulation-interface], and https://github.com/OpenSimulationInterface/osi-sensor-model-packaging[osi-sensor-model-packaging]) into this repository's root (e.g. "./osi-documentation"). You may also choose to only check out a selection of these repositories.
++
+[source, shell]
+----
+cd osi-antora-generator
+git clone --recurse-submodules https://github.com/OpenSimulationInterface/osi-documentation.git
+git clone --recurse-submodules https://github.com/OpenSimulationInterface/open-simulation-interface.git
+git clone --recurse-submodules https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git
+----
+. Copy the 'site.yml' as 'site_local.yml'
+.. Recommended: For local content, switch the url of all local repositories from remote to local (comment out/in respective line with `url:`)
+.. Optional: To build a specific branch, replace the related entry under `branches:` or add it to the array.
+Alternatively, switch to 'HEAD' by commenting out/in the respective lines with `branches:`
+For more information on how the 'site.yml' works, see https://docs.antora.org/antora/latest/playbook/set-up-playbook/[the official Antora documentation^].
+. To run Antora, run docker-compose:
++
+[source, shell]
+----
+docker-compose -f docker-compose-local.yml
+----
+.. Alternatively, you can run the link:scripts/build.py[build.py] script in the folder link:./scripts/[scripts], which will build the result and automatically open it in chrome afterwards. 
++
+NOTE: Either way, Antora will create and build the result into a 'site/' folder.
 
 [TIP]
 ====
@@ -29,6 +56,6 @@ However, there exists a workaround:
 
 . Check out the repositories as described above but do not add them to your workspace.
 If they are already in your workspace, remove them from there.
-. Next, add the innermost repository (the content repository) to your workspace first.
+. Next, add the innermost repository (the content repositories) to your workspace first.
 . Then, continue outwards until you added the uppermost repository (the generator).
 ====
