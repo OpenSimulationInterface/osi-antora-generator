@@ -49,6 +49,11 @@ docker-compose -f docker-compose-local.yml
 +
 NOTE: Either way, Antora will create and build the result into a 'site/' folder.
 
+IMPORTANT: This setup runs doxygen builds by default.
+Note that these can take more than five minutes per version!
+If you are iterating over small or multiple text changes, consider deactivating the doxygen build steps by commenting out the line `doxygen: true` in your site_local.yml.
+Alternatively, limit your build to only your current content (i.e. comment out the tags and only add HEAD as branch).
+
 [TIP]
 ====
 If you are using VSCode, there is currently no correctly working support for source control of nested git projects.
