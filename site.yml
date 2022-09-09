@@ -4,10 +4,10 @@ site:
   url: https://opensimulationinterface.github.io/osi-documentation/
   start_page: asamosi::index.adoc # Replace "latest" with the last released version, e.g. 1.0.0
 
-# urls: # Activate this once the first release version goes live!!!
-#   latest_version_segment_strategy: redirect:to
-#   latest_version_segment: latest
-#   redirect_facility: nginx
+urls: # Activate this once the first release version goes live!!!
+  latest_version_segment_strategy: redirect:to
+  latest_version_segment: latest
+  redirect_facility: nginx
 
 content:
   edit_url: ~
