@@ -10,6 +10,7 @@ site:
 #   redirect_facility: nginx
 
 content:
+  edit_url: ~
   sources:
     - url: https://github.com/OpenSimulationInterface/osi-documentation.git
     # - url: ./osi-documentation
@@ -17,21 +18,21 @@ content:
       # branches: HEAD
       tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
-      edit_url: 'https://github.com/OpenSimulationInterface/osi-documentation/blob/{refname}/{path}'
+      # edit_url: '{web_url}/blob/{refname}/{path}'
     - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git
     # - url: ./open-simulation-interface
       branches: [antora/base-antora-setup] # change to main later
       # branches: HEAD
       tags: [v*,"!v2*", "!v3.0*", "!v3.1*", "!v3.2*", "!v3.3*", "!v3.4*", "!v3.5.0"]
       start_path: .antora
-      edit_url: 'https://github.com/OpenSimulationInterface/open-simulation-interface/blob/{refname}/{path}'
+      # edit_url: '{web_url}/blob/{refname}/{path}'
     - url: https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git
     # - url: ./osi-sensor-model-packaging
       branches: [antora/base-antora-setup] # change to main later
       # branches: HEAD
       tags: [v*,"!v0*", "!v1.0*", "!v1.1*", "!v1.2*", "!v1.3.0"]
       start_path: .antora
-      edit_url: 'https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/blob/{refname}/{path}'
+      # edit_url: '{web_url}/blob/{refname}/{path}'
     - url: https://code.asam.net/common/style-resources.git
       branches: master      
       start_path: antora
@@ -79,7 +80,7 @@ asciidoc:
 
   extensions:
   - asciidoctor-kroki
-  - '@djencks/asciidoctor-mathjax'
+  # - '@djencks/asciidoctor-mathjax'
   - './asam-antora-extensions/asam-asciidoctor_extensions-registered.js'
   - './asam-antora-extensions/asam-asciidoctor_extensions.js'
 # end::asciidoctor[]
