@@ -52,7 +52,7 @@ jobs:
         args: repo/run-build.sh
     
     - name: Upload pages artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-pages-artifact@v1
       with: 
         path: ./repo/site
 
