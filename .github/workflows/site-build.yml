@@ -57,6 +57,24 @@ jobs:
         name: antora-build
         path: ./repo/site
 
+  deploy:
+    # Allow one concurrent deployment
+    concurrency:
+      group: "pages"
+      cancel-in-progress: true
+
+    needs: build
+    permissions: 
+      pages: write
+      id-token: write
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
