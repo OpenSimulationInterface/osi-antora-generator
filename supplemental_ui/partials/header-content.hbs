@@ -15,7 +15,7 @@
       </div>
       {{/if}}
     </div>
-    <div class="navbar-item search hide-for-print">
+    <div class="navbar-item menu hide-for-print">
       <div id="topbar-nav" class="navbar-menu">
         <div class="navbar-end">
           <a class="navbar-item" href="#">To top</a>
@@ -36,21 +36,21 @@
             {{/if}}
           </div>
         </div>
-      </div>
-      {{#if page.attributes.download-links}}
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Additional resources</a>
-          <div class="navbar-dropdown">
-            {{# each page.attributes.download-links}}
-              {{#if (eq page.attributes.component-latest-version page.attributes.version)}}
-                <a class="navbar-item" href="{{{../siteRootPath}}}/{{{../page.componentVersion.name}}}/latest/{{{../page.module}}}/_attachments/{{this.[0]}}" download>{{this.[1]}}</a>
-              {{else}}
-                <a class="navbar-item" href="{{{../siteRootPath}}}/{{{../page.componentVersion.name}}}/{{{../page.componentVersion.version}}}/{{{../page.module}}}/_attachments/{{this.[0]}}" download>{{this.[1]}}</a>
-              {{/if}}
-            {{/each}}
+        {{#if page.attributes.download-links}}
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="#">Additional resources</a>
+            <div class="navbar-dropdown">
+              {{# each page.attributes.download-links}}
+                {{#if (eq page.attributes.component-latest-version page.attributes.version)}}
+                  <a class="navbar-item" href="{{{../siteRootPath}}}/{{{../page.componentVersion.name}}}/latest/{{{../page.module}}}/_attachments/{{this.[0]}}" download>{{this.[1]}}</a>
+                {{else}}
+                  <a class="navbar-item" href="{{{../siteRootPath}}}/{{{../page.componentVersion.name}}}/{{{../page.componentVersion.version}}}/{{{../page.module}}}/_attachments/{{this.[0]}}" download>{{this.[1]}}</a>
+                {{/if}}
+              {{/each}}
+            </div>
           </div>
-        </div>
-      {{/if}}
+        {{/if}}
+      </div>
     </div>
   </nav>
 </header>
