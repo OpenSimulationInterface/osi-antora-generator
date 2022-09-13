@@ -33,6 +33,15 @@ content:
       branches: master      
       start_path: antora
 
+    ### Redirects for previous versions
+    - url: https://github.com/OpenSimulationInterface/osi-documentation.git
+    # - url: ./osi-documentation
+      branches: [antora/redirects]
+      start_path: v3.3.0
+    - url: https://github.com/OpenSimulationInterface/osi-documentation.git
+    # - url: ./osi-documentation
+      branches: [antora/redirects]
+      start_path: v3.4.0
 ui:
   bundle:
     url: https://code.asam.net/common/style-resources/-/raw/master/antora/ui-bundle.zip?inline=false
