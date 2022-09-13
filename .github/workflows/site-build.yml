@@ -51,10 +51,9 @@ jobs:
         entrypoint: sh
         args: repo/run-build.sh
     
-    - name: Upload artifact
+    - name: Upload pages artifact
       uses: actions/upload-artifact@v3
       with: 
-        name: antora-build
         path: ./repo/site
 
   deploy:
@@ -76,6 +75,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: ./repo/site # The folder the action should deploy.
+      id: deployment
+      uses: actions/deploy-pages@v1
