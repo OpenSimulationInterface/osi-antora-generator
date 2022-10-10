@@ -10,8 +10,15 @@ services:
       - kroki
       - blockdiag
       - mermaid
+    ## Run interactively
     # entrypoint: /bin/bash
-    entrypoint: antora --stacktrace --fetch --clean site_local.yml
+    
+    ## Run with PDF generator. 
+    ## BE AWARE that this currently does not support the use of (C) or (R)! You must alter the respective lines in osi-documentation/.antora/antora.yml. Make sure not to check these changes in!
+    # entrypoint: antora --stacktrace --clean --extension @antora/pdf-extension site_local.yml # This creates a pdf on top of the html output. BE AWARE that this currently does not support the use of (C) or (R)! You must alter the respective lines in osi-documentation/.antora/antora.yml. Make sure not to check these changes in!
+
+    ## Default generator setup
+    entrypoint: antora --stacktrace --clean site_local.yml
 
 
   kroki:
