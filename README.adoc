@@ -64,3 +64,35 @@ If they are already in your workspace, remove them from there.
 . Next, add the innermost repository (the content repositories) to your workspace first.
 . Then, continue outwards until you added the uppermost repository (the generator).
 ====
+
+
+=== Local PDF builder
+IMPORTANT: This only works for a local setup!
+
+.Click for local PDF builder setup instructions
+[%collapsible]
+====
+To build Antora into PDF (which only works locally right now), you have to change a few settings.
+
+First, enter your link:docker-compose-local.yml[docker-compose-local.yml] file, comment out the line below `Default generator setup`, then comment in the line below `BE AWARE that this currently does not support the use of (C) or (R)! You must alter the respective lines in osi-documentation/.antora/antora.yml. Make sure not to check these changes in!`.
+
+Next, open the 'antora.yml' file in your 'osi-documentation/.antora' folder and change the following lines from
+
+[source,yaml]
+----
+THIS_STANDARD: ASAM OSI<sup>®</sup> # Normal attribute
+THIS_STANDARD_TITLE: 'ASAM OSI^®^' # Normal attribute
+# THIS_STANDARD: ASAM OSI # PDF version attribute
+# THIS_STANDARD_TITLE: 'ASAM OSI' # PDF version attribute
+----
+
+to
+
+[source,yaml]
+----
+# THIS_STANDARD: ASAM OSI<sup>®</sup> # Normal attribute
+# THIS_STANDARD_TITLE: 'ASAM OSI^®^' # Normal attribute
+THIS_STANDARD: ASAM OSI # PDF version attribute
+THIS_STANDARD_TITLE: 'ASAM OSI' # PDF version attribute
+----
+====
