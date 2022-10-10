@@ -5,4 +5,4 @@ component_versions: '*'
 #     source-highlighter: rouge
     # pdf-theme: ./pdf-theme.yml
 build:
-  dir: "./site/pdf"  
+  dir: "./pdf"  
