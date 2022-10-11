@@ -2,6 +2,7 @@
 *.adoc1
 *.adoc2
 site/
+pdf/
 0_used-keywords.adoc
 *.pyc
 .vscode/settings.json

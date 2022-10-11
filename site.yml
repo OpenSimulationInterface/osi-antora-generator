@@ -13,19 +13,19 @@ content:
   sources:
     - url: https://github.com/OpenSimulationInterface/osi-documentation.git # retrieve content from remote
     # - url: ./osi-documentation # retrieve content locally
-      branches: [antora/base-antora-setup] # osi-documentation -- change to main later
+      branches: [master] # osi-documentation
       # branches: HEAD # build current HEAD
       tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
     - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git # retrieve content from remote
     # - url: ./open-simulation-interface# retrieve content locally
-      branches: [antora/base-antora-setup] # open-simulation-interface -- change to main later
+      branches: [master] # open-simulation-interface
       # branches: HEAD # build current HEAD
       tags: [v*,"!v2*", "!v3.0*", "!v3.1*", "!v3.2*", "!v3.3*", "!v3.4*", "!v3.5.0"]
       start_path: .antora
     - url: https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git # retrieve content from remote
     # - url: ./osi-sensor-model-packaging # retrieve content locally
-      branches: [antora/base-antora-setup] # osi-sensor-model-packaging -- change to main later
+      branches: [master] # osi-sensor-model-packaging
       # branches: HEAD # build current HEAD
       tags: [v*,"!v0*", "!v1.0*", "!v1.1*", "!v1.2*", "!v1.3.0"]
       start_path: .antora
@@ -85,7 +85,6 @@ asciidoc:
 
   extensions:
   - asciidoctor-kroki
-  # - '@djencks/asciidoctor-mathjax'
   - './asam-antora-extensions/asam-asciidoctor_extensions-registered.js'
   - './asam-antora-extensions/asam-asciidoctor_extensions.js'
 # end::asciidoctor[]
