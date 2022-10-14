@@ -60,7 +60,7 @@ runtime:
 asciidoc:
   attributes:
     page-pagination: true
-    # page-width-limit: none@
+    page-width-limit: none@
     hide-uri-scheme:
     kroki-server-url: 'http://kroki:8000'
     kroki-fetch-diagram: ""
