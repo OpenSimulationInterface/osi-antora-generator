@@ -17,3 +17,9 @@
     display: flex;
     justify-content: center;
 }}
+
+.dyncontent {
+    overflow: scroll;
+    max-width: 100vw;
+    overflow-X: scroll;
+}
