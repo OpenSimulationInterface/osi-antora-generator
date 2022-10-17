@@ -54,8 +54,8 @@ jobs:
         unset IFS
         SRC_REPO=${SRC_REPO[1]}
         HEAD_REF=${{ github.event.client_payload.head_ref }}
-        echo $SRC_REPO
-        sed -i -r "s|\[(.*)\] # $SRC_REPO|[$HEAD_REF] # $SRC_REPO|" site.yml
+        echo ${SRC_REPO}
+        sed -i -r "s|\[(.*)\] # ${SRC_REPO}|[$HEAD_REF] # ${SRC_REPO}|" site.yml
         cat site.yml
 
     # build site
