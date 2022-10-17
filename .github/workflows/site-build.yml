@@ -7,10 +7,11 @@ on:
   push: # on push
     branches:
     - main
-  schedule: # periodic - needed because some of the content is from the other repos
-    - cron:  '30 5,20 * * *' # twice per day, in the morning and evening.
+  # schedule: # periodic - needed because some of the content is from the other repos
+  #   - cron:  '30 5,20 * * *' # twice per day, in the morning and evening.
   repository_dispatch:
     types: [antora-build-trigger]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -45,6 +46,10 @@ jobs:
         ASAM_ANTORA_EXTENSIONS: ${{ secrets.ASAM_ANTORA_EXTENSIONS }}
       run: git clone https://asam-antora-extensions:$ASAM_ANTORA_EXTENSIONS@code.asam.net/common/asam-antora-extensions.git
         
+    - name: Apply dispatch information
+      if: ${{ github.event_name == 'repository_dispatch' }}
+      run: echo ${{ github.event.client_payload.ref }} && echo ${{ github.event.client_payload.src }}
+
 
     # build site
     - name: Generate site
@@ -54,6 +59,7 @@ jobs:
         args: repo/run-build.sh
     
     - name: Upload pages artifact
+      if: ${{ github.event_name != 'repository_dispatch' }}
       uses: actions/upload-pages-artifact@v1
       with: 
         path: ./repo/site
