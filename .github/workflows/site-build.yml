@@ -46,11 +46,10 @@ jobs:
     - name: Apply dispatch information
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
       working-directory: repo
-      run: |
-        echo ${{ github.event.client_payload.head_ref }}
-        echo ${{ github.event.client_payload.src }}
+      run: |      
+        SRC=${{ github.event.client_payload.src }}
         IFS="/"
-        SRC_REPO=(${{ github.event.client_payload.src }})
+        SRC_REPO=($SRC)
         unset IFS
         SRC_REPO=${SRC_REPO[1]}
         HEAD_REF=${{ github.event.client_payload.head_ref }}
