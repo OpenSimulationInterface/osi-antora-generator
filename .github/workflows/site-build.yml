@@ -47,10 +47,12 @@ jobs:
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
       working-directory: repo
       run: |
-        ls
         echo ${{ github.event.client_payload.head_ref }}
         echo ${{ github.event.client_payload.src }}
-        IFS="/"; SRC_REPO=(${{ github.even.client_payload.src }}); unset IFS; SRC_REPO=${SRC_REPO[1]}
+        IFS="/"
+        SRC_REPO=(${{ github.event.client_payload.src }})
+        unset IFS
+        SRC_REPO=${SRC_REPO[1]}
         HEAD_REF=${{ github.event.client_payload.head_ref }}
         echo $SRC_REPO
         sed -i -r "s|\[(.*)\] # $SRC_REPO|[$HEAD_REF] # $SRC_REPO|" site.yml
