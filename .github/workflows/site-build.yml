@@ -1,9 +1,6 @@
 name: ASAM OSI build
 
 on:
-  # create: # new branches or tags
-  # release: # new releases
-  # pull_request:
   push: # on push
     branches:
     - main
@@ -47,9 +44,14 @@ jobs:
       run: git clone https://asam-antora-extensions:$ASAM_ANTORA_EXTENSIONS@code.asam.net/common/asam-antora-extensions.git
         
     - name: Apply dispatch information
-      if: ${{ github.event_name == 'repository_dispatch' }}
-      run: echo ${{ github.event.client_payload.ref }} && echo ${{ github.event.client_payload.src }}
-
+      if: ${{ github.event_name == 'repository_dispatch' }} && ${{ github.event.client_payload.head_ref }}
+      run: |
+        echo ${{ github.event.client_payload.head_ref }} \
+        echo ${{ github.event.client_payload.src }} \
+        IFS="/"; SRC_REPO=(${{ github.even.client_payload.src }}); unset IFS; SRC_REPO=${SRC_REPO[1]} \
+        HEAD_REF=${{ github.event.client_payload.head_ref }} \
+        sed -i -r "s/\[(.*)\] # $SRC_REPO/[$HEAD_REF] # $SRC_REPO/" site.yml \
+        cat site.yml
 
     # build site
     - name: Generate site
@@ -59,7 +61,6 @@ jobs:
         args: repo/run-build.sh
     
     - name: Upload pages artifact
-      if: ${{ github.event_name != 'repository_dispatch' }}
       uses: actions/upload-pages-artifact@v1
       with: 
         path: ./repo/site
@@ -75,13 +76,15 @@ jobs:
       pages: write
       id-token: write
 
-    # Deploy to the github-pages environment
+    # Deploy to the github-pages environment if it was not triggered from remote OR the remote source was master or main.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     
     runs-on: ubuntu-latest
+
     steps:
     - name: Deploy
+      if: ${{ github.event_name }} != 'repository_dispatch' || contains(${{ github.event.client_payload.ref}}, 'master') || contains(${{ github.event.client_payload.ref}}, 'main')
       id: deployment
       uses: actions/deploy-pages@v1
