@@ -12,7 +12,8 @@ on:
   repository_dispatch:
     types: [antora-build-trigger]
     branches: 
-    - main, build/extension-integration
+    - main
+    - build/extension-integration
 
 jobs:
   build:
