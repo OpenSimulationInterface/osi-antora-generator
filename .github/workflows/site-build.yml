@@ -11,9 +11,6 @@ on:
     - cron:  '30 5,20 * * *' # twice per day, in the morning and evening.
   repository_dispatch:
     types: [antora-build-trigger]
-    branches: 
-    - main
-    - build/extension-integration
 
 jobs:
   build:
