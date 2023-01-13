@@ -100,6 +100,7 @@ antora:
       alternate_xref_style: 'full'
       loft: true
       local_to_global_references: true
+      bibliography: true
       doxygen: true
 
   # end::antora[]
