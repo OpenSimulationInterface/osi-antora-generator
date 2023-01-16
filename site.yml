@@ -24,7 +24,7 @@ content:
     - url: https://github.com/philipwindecker/osi-sensor-model-packaging.git # retrieve content from remote
     # - url: ./osi-sensor-model-packaging # retrieve content locally
       # branches: HEAD # build current HEAD
-      tags: [v*,"!v0*", "!v1.0*", "!v1.1*", "!v1.2*", "!v1.3.0"]
+      tags: [v*-antora,"!v0*", "!v1.0*", "!v1.1*", "!v1.2*", "!v1.3.0"]
       start_path: .antora
     - url: https://code.asam.net/common/style-resources.git
       branches: master      
