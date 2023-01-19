@@ -7,7 +7,7 @@
   {{/if}}
   <ul class="components">
     {{#each site.components}}
-      {{#unless (or (eq this.title "ASAM_Terminology") (eq this.title "ASAM_Syle_Resources"))}}
+      {{#unless (or (eq this.title "ASAM_Style_Resources") (eq this.title "ASAM_Terminology"))}}
         <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
           <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
           <ul class="versions">

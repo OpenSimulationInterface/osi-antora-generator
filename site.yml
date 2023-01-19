@@ -27,7 +27,7 @@ content:
     # - url: ./osi-sensor-model-packaging # retrieve content locally
       branches: [master] # osi-sensor-model-packaging
       # branches: HEAD # build current HEAD
-      tags: [v*,"!v0*", "!v1.0*", "!v1.1*", "!v1.2*", "!v1.3.0"]
+      tags: [v*-antora, x-antora-v*]
       start_path: .antora
     - url: https://code.asam.net/common/style-resources.git
       branches: master      
@@ -44,7 +44,7 @@ content:
       start_path: v3.4.0
 ui:
   bundle:
-    url: https://code.asam.net/common/style-resources/-/raw/master/antora/ui-bundle.zip?inline=false
+    url: https://code.asam.net/common/antora-ui/-/jobs/artifacts/main/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
   supplemental_files: ./supplemental_ui
 
