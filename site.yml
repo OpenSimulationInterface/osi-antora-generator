@@ -77,6 +77,7 @@ asciidoc:
     xrefstyle: short@
     toclevels: 3
     asciidoc-resources: ASAM_Syle_Resources:ROOT:partial$asciidoc-resources
+    listing-caption: Code
 
     ## Labels
     mandatory: '<label class="mandatory"/>'
