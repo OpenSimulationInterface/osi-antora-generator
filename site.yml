@@ -78,6 +78,7 @@ asciidoc:
     toclevels: 3
     asciidoc-resources: ASAM_Syle_Resources:ROOT:partial$asciidoc-resources
     listing-caption: Code
+    use-antora-rules: true
 
     ## Labels
     mandatory: '<label class="mandatory"/>'
