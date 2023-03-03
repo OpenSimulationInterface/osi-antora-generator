@@ -18,7 +18,7 @@ content:
       tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
     - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git # retrieve content from remote
-    # - url: ./open-simulation-interface# retrieve content locally
+    # - url: ./open-simulation-interface # retrieve content locally
       branches: [master] # open-simulation-interface
       # branches: HEAD # build current HEAD
       tags: [v*,"!v2*", "!v3.0*", "!v3.1*", "!v3.2*", "!v3.3*", "!v3.4*", "!v3.5.0"]
