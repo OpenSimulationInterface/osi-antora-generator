@@ -78,7 +78,7 @@ jobs:
         SRC_REPO=${SRC_REPO[1]}
         HEAD_REF=${{ github.event.client_payload.head_ref }}
         echo Branch build for ${HEAD_REF} in ${SRC_REPO}
-        sed -i -r "s|\[(.*)\] # o|HEAD # ${SRC_REPO} # o|g" site.yml
+        sed -i -r "s|\[(.*)\] # o|[\1,HEAD] # ${SRC_REPO} # o|g" site.yml
         sed -i -r "s|(- url: .*# retrieve content from remote)|# \1|g" site.yml
         sed -i -r "s|# (- url: .*# retrieve content locally)|\1|g" site.yml
         echo Checking out the target branch
