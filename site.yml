@@ -1,8 +1,8 @@
 site:
   title: ASAM OSI (Open Simulation Interface)
   # the 404 page and sitemap files only get generated when the url property is set
-  url: https://opensimulationinterface.github.io/osi-documentation/
-  start_page: asamosi::index.adoc # Replace "latest" with the last released version, e.g. 1.0.0
+  url: https://opensimulationinterface.github.io/osi-antora-generator
+  start_page: asamosi:specification:index.adoc # Replace "latest" with the last released version, e.g. 1.0.0
 
 urls: # Activate this once the first release version goes live!!!
   latest_version_segment_strategy: redirect:to
