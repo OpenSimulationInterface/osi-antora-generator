@@ -1,8 +1,8 @@
 site:
   title: ASAM OSI (Open Simulation Interface)
   # the 404 page and sitemap files only get generated when the url property is set
-  url: https://opensimulationinterface.github.io/osi-documentation/
-  start_page: asamosi::index.adoc # Replace "latest" with the last released version, e.g. 1.0.0
+  url: https://opensimulationinterface.github.io/osi-antora-generator
+  start_page: asamosi:specification:index.adoc # Replace "latest" with the last released version, e.g. 1.0.0
 
 urls: # Activate this once the first release version goes live!!!
   latest_version_segment_strategy: redirect:to
@@ -11,13 +11,14 @@ urls: # Activate this once the first release version goes live!!!
 content:
   edit_url: ~
   sources:
-    - url: https://github.com/philipwindecker/osi-documentation.git # retrieve content from remote
+    - url: https://github.com/OpenSimulationInterface/osi-documentation.git # retrieve content from remote
     # - url: ./osi-documentation # retrieve content locally
-      # branches: HEAD # build current HEAD
+      branches: [master] # osi-documentation
       tags: [v*,"!v1*", "!v3.5.0"]
       start_path: .antora
-    - url: https://github.com/philipwindecker/open-simulation-interface.git # retrieve content from remote
-    # - url: ./open-simulation-interface# retrieve content locally
+    - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git # retrieve content from remote
+    # - url: ./open-simulation-interface # retrieve content locally
+      branches: [master] # open-simulation-interface
       # branches: HEAD # build current HEAD
       tags: [v*,"!v2*", "!v3.0*", "!v3.1*", "!v3.2*", "!v3.3*", "!v3.4*", "!v3.5.0"]
       start_path: .antora
@@ -41,7 +42,7 @@ content:
       start_path: v3.4.0
 ui:
   bundle:
-    url: https://code.asam.net/common/style-resources/-/raw/master/antora/ui-bundle.zip?inline=false
+    url: https://code.asam.net/common/antora-ui/-/jobs/artifacts/main/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
   supplemental_files: ./supplemental_ui
 
@@ -74,6 +75,8 @@ asciidoc:
     xrefstyle: short@
     toclevels: 3
     asciidoc-resources: ASAM_Syle_Resources:ROOT:partial$asciidoc-resources
+    listing-caption: Code
+    use-antora-rules: true
 
     ## Labels
     mandatory: '<label class="mandatory"/>'
@@ -97,6 +100,7 @@ antora:
       alternate_xref_style: 'full'
       loft: true
       local_to_global_references: true
-      # doxygen: true
+      bibliography: true
+      doxygen: true
 
   # end::antora[]
