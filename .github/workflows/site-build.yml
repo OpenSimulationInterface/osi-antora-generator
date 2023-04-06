@@ -41,7 +41,7 @@ jobs:
       working-directory: repo
       env: 
         ASAM_ANTORA_EXTENSIONS: ${{ secrets.ASAM_ANTORA_EXTENSIONS }}
-      run: git clone https://asam-antora-extensions:$ASAM_ANTORA_EXTENSIONS@code.asam.net/common/asam-antora-extensions.git
+      run: git clone --recurse-submodules https://asam-antora-extensions:$ASAM_ANTORA_EXTENSIONS@code.asam.net/common/asam-antora-extensions.git
       
     - name: Checkout documentation
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
