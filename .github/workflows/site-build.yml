@@ -31,17 +31,18 @@ jobs:
     steps:
 
     # checkout repo into folder guide. This is done to match the setup for the local build in docker-compose
-    - name: Checkout
+    - name: Checkout with submodules
       uses: actions/checkout@v3
       with:
         path: repo
         fetch-depth: 0 # test if depth in fetch history is required
+        submodules: recursive
         
-    - name: Submodules
-      working-directory: repo
-      env: 
-        ASAM_ANTORA_EXTENSIONS: ${{ secrets.ASAM_ANTORA_EXTENSIONS }}
-      run: git clone --recurse-submodules https://asam-antora-extensions:$ASAM_ANTORA_EXTENSIONS@code.asam.net/common/asam-antora-extensions.git
+    # - name: Submodules
+    #   working-directory: repo
+    #   env: 
+    #     ASAM_ANTORA_EXTENSIONS: ${{ secrets.ASAM_ANTORA_EXTENSIONS }}
+    #   run: git clone --recurse-submodules https://asam-antora-extensions:$ASAM_ANTORA_EXTENSIONS@code.asam.net/common/asam-antora-extensions.git
       
     - name: Checkout documentation
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
