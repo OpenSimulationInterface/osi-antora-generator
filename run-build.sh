@@ -4,4 +4,5 @@
 
 cp -r /usr/src/repo/. /github/workspace/.
 cd repo
+export NODE_OPTIONS="--max-old-space-size=8192"
 exec antora --stacktrace --fetch --clean site.yml
