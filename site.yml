@@ -104,5 +104,6 @@ antora:
       local_to_global_references: true
       bibliography: true
       doxygen: true
+      orphan_exceptions: /gen/
 
   # end::antora[]
