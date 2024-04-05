@@ -32,7 +32,7 @@ jobs:
 
     # checkout repo into folder guide. This is done to match the setup for the local build in docker-compose
     - name: Checkout with submodules
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: repo
         fetch-depth: 0 # test if depth in fetch history is required
@@ -46,7 +46,7 @@ jobs:
       
     - name: Checkout documentation
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: OpenSimulationInterface/osi-documentation
         path: repo/osi-documentation
@@ -54,7 +54,7 @@ jobs:
         
     - name: Checkout interface
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: OpenSimulationInterface/open-simulation-interface
         path: repo/open-simulation-interface
@@ -62,7 +62,7 @@ jobs:
         
     - name: Checkout OSMP
       if: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.head_ref }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: OpenSimulationInterface/osi-sensor-model-packaging
         path: repo/osi-sensor-model-packaging
@@ -101,7 +101,7 @@ jobs:
         args: repo/run-build.sh
     
     - name: Upload pages artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
       with: 
         path: ./repo/site
 
@@ -115,6 +115,7 @@ jobs:
 
     needs: build
     permissions: 
+      actions: read
       pages: write
       id-token: write
 
@@ -128,4 +129,4 @@ jobs:
     steps:
     - name: Deploy
       id: deployment
-      uses: actions/deploy-pages@v1
+      uses: actions/deploy-pages@v4
