@@ -15,22 +15,22 @@ content:
     # - url: ./osi-documentation # retrieve content locally
       branches: [master] # osi-documentation
       # branches: HEAD # build current HEAD
-      tags: [v*,"!v1*", "!v3.5.0"]
+      tags: [v*,"!v1*", "!v3.5.0", "!v3.7.0-rc*"]
       start_path: .antora
     - url: https://github.com/OpenSimulationInterface/open-simulation-interface.git # retrieve content from remote
     # - url: ./open-simulation-interface # retrieve content locally
       branches: [master] # open-simulation-interface
       # branches: HEAD # build current HEAD
-      tags: [v*,"!v2*", "!v3.0*", "!v3.1*", "!v3.2*", "!v3.3*", "!v3.4*", "!v3.5.0"]
+      tags: [v*,"!v2*", "!v3.0*", "!v3.1*", "!v3.2*", "!v3.3*", "!v3.4*", "!v3.5.0", "!v3.7.0-rc*"]
       start_path: .antora
     - url: https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git # retrieve content from remote
     # - url: ./osi-sensor-model-packaging # retrieve content locally
       branches: [master] # osi-sensor-model-packaging
       # branches: HEAD # build current HEAD
-      tags: [v*-antora, x-antora-v*]
+      tags: [v*-antora, x-antora-v*, "!x-antora-v3.7.0-rc*"]
       start_path: .antora
     - url: https://code.asam.net/common/style-resources.git
-      branches: master      
+      branches: master
       start_path: antora
 
     ### Redirects for previous versions
